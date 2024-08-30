@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+  <main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="page-header-content">
+              <nav class="breadcrumb-area">
+                <ul class="breadcrumb">
+                  <li><a href="{% url 'index_url' %}">Home</a></li>
+                  <li class="breadcrumb-sep">/</li>
+                  <li>Blog Details</li>
+                </ul>
+              </nav>
+              <h4 class="title">Blog Details</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start Blog Details Area Wrapper ==-->
+    <section class="blog-details-area">
+      <div class="container">
+        <div class="row flex-row-reverse">
+          <div class="col-lg-8">
+            <div class="blog-details-content-wrap">
+              <div class="thumb">
+                <img src="{{ blog.image.url }}" alt="Image-HasTech">
+              </div>
+              <div class="content-info">
+                <ul class="meta">
+                  <li> post by: {{ blog.admin }}</li>
+                  <li class="post-separator"> | </li>
+                  <li> {{ blog.data }} </li>
+                </ul>
+                <h4 class="title">{{ blog.title }}</h4>
+              </div>
+              <div class="content">
+                <p>{{ blog.description }}</p>
+                <blockquote>{{ blog.article }}</blockquote>
+                <p>{{ blog.description }}</p>
+              </div>
+              <!--== Start Comment View Item ==-->
+              <div class="comment-view-area">
+                <h4 class="title">4 comments</h4>
+                <div class="comment-view-content">
+                  <div class="single-comment">
+                    <div class="author-wrap">
+                      <div class="author-pic">
+                        <img src="assets/img/blog/comment.jpg" alt="Image-HasTech">
+                      </div>
+                      <div class="author-info">
+                        <h4 class="title"><a href="blog.html">Elijah</a></h4>
+                        <h5 class="sub-title">Sep 30, 2020 at 03:20</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis dicta ea consequuntur veniam unde quam natus corporis atque laboriosam.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="single-comment">
+                    <div class="author-wrap">
+                      <div class="author-pic">
+                        <img src="assets/img/blog/comment2.jpg" alt="Image-HasTech">
+                      </div>
+                      <div class="author-info">
+                        <h4 class="title"><a href="blog.html">William</a></h4>
+                        <h5 class="sub-title">Sep 30, 2020 at 03:11</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis dicta ea consequuntur veniam unde quam natus corporis atque laboriosam.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--== End Comment View Item ==-->
+
+              <!--== Start Pagination Wrap ==-->
+              <div class="row">
+                <div class="col-12">
+                  <div class="pagination-content-wrap">
+                    <nav class="pagination-nav">
+                      <ul class="pagination justify-content-center">
+                            <li><a class="disabled active prev" href="shop.html">Prev</a></li>
+                            <li><a class="disabled active" href="shop.html">1</a></li>
+                            <li><a href="shop.html">2</a></li>
+                            <li><a class="next" href="shop.html">Next</a></li>
+                          </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <!--== End Pagination Wrap ==-->
+
+              <!--== Start Comment Item ==-->
+              <div class="comment-form-area">
+                <h4 class="title">Leave a comment</h4>
+                <p>Your email address will not be published</p>
+                <div class="comment-form-content">
+                  <form action="#">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="for_comment">Comment</label>
+                          <textarea id="for_comment" class="form-control" placeholder="Message"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="for_name">Name</label>
+                          <input id="for_name" class="form-control" type="text" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="for_email">Email</label>
+                          <input id="for_email" class="form-control" type="email" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-submit-btn">
+                          <button type="submit" class="btn-submit">Post comment</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!--== End Comment Item ==-->
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!--== Start Sidebar Area ==-->
+            <div class="sidebar-area inner-left-padding">
+              <div class="widget-item">
+                <div class="widget-title">
+                  <h3 class="title">Search Here</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="widget-search-box">
+                    <form action="#" method="post">
+                      <div class="form-input-item">
+                        <label for="search2" class="sr-only">Keywords here</label>
+                        <input type="search" id="search2" placeholder="Search Your Article">
+                        <button type="submit" class="btn-src">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-item">
+                <div class="widget-title">
+                  <h3 class="title">Categories</h3>
+                </div>
+                <div class="widget-body">
+                  {% for i in category %}
+                  <div class="widget-categories">
+                    <ul>
+                      <li><a href="blog.html">{{ i.name }}<span class="fa fa-angle-double-right"></span></a></li>
+                    </ul>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="widget-item">
+                <div class="widget-title">
+                  <h3 class="title">Recent Post</h3>
+                </div>
+                <div class="widget-body">
+                  {% for i in post %}
+                  <div class="widget-blog-post">
+                    <ul>
+                      <li>
+                        <div class="thumb">
+                          <a href="blog-details.html"><img src="{{ i.image.url }}" alt="Image-HasTech"></a>
+                        </div>
+                        <div class="content">
+                          <span>{{ i.data }}</span>
+                          <h4><a href="blog-details.html">{{ i.title }}</a></h4>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <!--== End Sidebar Area ==-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Blog Details Area Wrapper ==-->
+  </main>
+
+  <!--== Start Footer Area Wrapper ==-->
+  <footer class="footer-area">
+    <div class="footer-top-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start widget Item ==-->
+            <div class="widget-item">
+              <div class="about-widget">
+                <div class="footer-logo-area">
+                  <a href="index.html">
+                    <img class="logo-main" src="assets/img/logo.png" alt="Logo" />
+                  </a>
+                </div>
+                <p class="desc">Lorem ipsum dolor sit amet, consectet adipi elit, sed do eius tempor incididun ut labore gthydolore.</p>
+                <ul>
+                  <li><i class="ion-ios7-location-outline"></i> 184 Main Rd E, St Albans VIC 3021,</li>
+                  <li><i class="ion-ios7-email-outline"></i> <a href="mailto://info@example.com">info@example.com</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--== End widget Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start widget Item ==-->
+            <div class="widget-item widget-item-one">
+              <h4 class="widget-title">INFORMATION</h4>
+              <div class="widget-menu-wrap">
+                <ul class="nav-menu">
+                  <li><a href="shop.html">Specials</a></li>
+                  <li><a href="shop.html">New products</a></li>
+                  <li><a href="shop.html">Top sellers</a></li>
+                  <li><a href="shop.html">Our stores</a></li>
+                  <li><a href="contact.html">Contact us</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--== End widget Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start widget Item ==-->
+            <div class="widget-item widget-item-two">
+              <h4 class="widget-title">QUICK LINKS</h4>
+              <div class="widget-menu-wrap">
+                <ul class="nav-menu">
+                  <li><a href="login.html">New User</a></li>
+                  <li><a href="about-us.html">Help Center</a></li>
+                  <li><a href="about-us.html">Refund Policy</a></li>
+                  <li><a href="about-us.html">Report Spam</a></li>
+                  <li><a href="login.html">Account</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--== End widget Item ==-->
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <!--== Start widget Item ==-->
+            <div class="widget-item">
+              <h4 class="widget-title">newsletter</h4>
+              <div class="widget-newsletter">
+                <p>Sign up for our newsletter & promotions</p>
+                <div class="newsletter-form">
+                  <form>
+                    <input type="email" class="form-control" placeholder="email@example.com">
+                    <button class="btn-submit" type="button">Subscribe</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--== End widget Item ==-->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+{% endblock %}

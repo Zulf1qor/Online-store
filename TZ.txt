@@ -1,0 +1,81 @@
+Tz for models.
+
+Banner:
+Price = int
+title = char
+addition = char
+description = char
+image = img 
+
+Support:
+title = char
+more = char
+
+Product:
+title = char
+image = img
+is sale = deciminal defoult = 0
+old price = deciminal auto now
+priclasce = deciminal
+description = text
+shipping police = text
+rating = Float field
+Category = for key category
+vendoors = for key Verdoors
+size  =  for key Size
+color = for key Color
+
+Category:
+name = char
+
+Vendors:
+name = Char
+
+Color:
+name = char
+
+Image:
+image = img
+
+Blog:
+Title = char
+admin = char
+data = datafield
+description = text
+article = char
+tags = char
+
+
+About:
+title = char
+description = text
+image = img
+
+Team:
+name = char
+photo = img
+
+Information:
+title = char
+info =char
+
+Contact:
+name = char
+email = char
+phonenum = int
+message = text
+
+Comment:
+user = for key user
+blog = for key blog
+text = text
+date = datefield
+
+
+Cart:
+User for key User
+product for key Product
+
+
+
+
